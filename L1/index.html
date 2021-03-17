@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+<style type="text/css">
+@pongfont {
+	font-family: 'pong';
+	src: url('./pongfont.woff') format('woff');
+}
+</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+				<h2>Cognitive Modeling Methods</h2>
+				<p>Jami Pekkanen, Juraj Simko</p>
+				<p>Lecture 1</p>
+				<p>2021-17-03T10+02</p>
+				<p>Cyberspace</p>
+				</section>
+
+				<section>
+				<h3>Course organization</h3>
+				<ul>
+					<li>Anarchy
+						<ul>
+							<li>Decisions are made by who they concern
+							<li>Speak up
+								<ul><li>But consider others (<b>esp Juraj!</b>)</ul>
+							<li>Chat is good for async questions and comments!
+						</ul>
+					<li>7 lectures, every Wednesday same time same place
+						<ul><li>Until it changes</ul>
+					<li>Grading up to you
+						<ul><li>Report? Notes? Oral exam? Seminar? Wrestling?
+						<li>When?
+						</ul>
+				</ul>
+				</section>
+
+
+
+				<section>
+				<h3>Practical matters</h3>
+				<ul>
+					<li>Prerequisites: interest and time
+						<ul><li>Cognitive Modeling Concepts useful but not strictly necessary</ul>
+					<li>"Off-line" communication via e-mail and random links etc
+						<ul><li>OK to share e-mail addresses among students?</ul>
+					<li>OK to share recorded lectures? Publicly?
+					<li>Course materials electronic
+						<ul><li>Sponsored by <a href="https://www.finlex.fi/fi/laki/ajantasa/1961/19610404#L2P12">Tekijänoikeuslaki 12 §</a></ul>
+					<li>Implementation platform with just a web browser
+						<ul><li>More details when it's implemented</ul>
+				</ul>
+				</section>
+
+				<section>
+				<h3>Course outline (early draft)</h3>
+				<ul>
+					<li>Four methods: GOFAI, control theoryish, reinforcement learning, function approximators (e.g. NNs)
+					<li>Two tasks: Tic-tac-toe, cruise control
+						<ul><li>One final boss: <span style="font: 'pongfont';">PONG</span></ul>
+					<li>Implementations and playing with (and against!?) them
+				</ul>
+				</section>
+
+				<section>
+				<h3>Prelim schedule</h3>
+				<ol>
+					<li>Intro (looking at it)
+					<li>Task analysis and theory overview
+					<li>GOFAI (problem space search mostly)
+					<li>Control theoryish
+					<li>Reinforcement learning (learning of control policies)
+					<li>Function approximators (mostly tools to use within the above)
+					<li>Harshness of reality and aporia
+				</ol>
+				</section>
+
+				<section>
+				<h3>Learning goals and apporach</h3>
+				<ul>
+					<li>General understanding of how to formalize and implement Concepts
+					<li>Understanding through implementation
+					<li>Students implement and tweak the "critical bits" of the methods
+						<ul><li>No extensive technical knowledge needed, we'll handle the cruft</li></ul>
+					<li>Not a cookbook!
+				</ul>
+				</section>
+
+				<section>
+				<h3>Cognitive modeling (in this course)</h3>
+				<ul>
+					<p>Mechanistic dynamic models. I.e. robots.</p>
+					<p>But not robotics. We aren't interested in making robots, but in understanding why intelligent systems work or don't work.</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>The tasks</h3>
+				<img src="tictactoe.png" style="width: 30%">
+				<img src="cruisecontrol.png" style="width: 30%">
+				<img src="pong.gif" style="width: 30%">
+				</section>
+
+				<section>
+				<h3>The methods</h3>
+				<ul>
+				<p>GOFAI, Control theoryish, Reinforcement learning, Function approximators (NN, ML).
+				<p>Selected to understand different approaches. Not exhaustive.</p>
+				<p>More detail in the next lecture</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>Homework</h3>
+				<ul>
+					<p>Play tic-tac-toe, with friend or a machine. Follow a car somehow. Play PONG.</p>
+					<p>Read the Wikipedia entries <a href="https://en.wikipedia.org/wiki/Tic-tac-toe">Tic-tac-toe</a>,
+					<a href="https://en.wikipedia.org/wiki/Adaptive_cruise_control">Adaptive cruise control</a> and <a href="https://en.wikipedia.org/wiki/Pong">Pong</a>.</p>
+					<p>Think how some animal would do these.
+					<p>Think how a robot or an AI would do these.
+					<p>Try to remember somehow what you came up with for the next lecture
+
+				</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
