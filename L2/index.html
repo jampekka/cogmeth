@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+<style type="text/css">
+@pongfont {
+	font-family: 'pong';
+	src: url('./pongfont.woff') format('woff');
+}
+
+.text-center-row>th,
+.text-center-row>td {
+  text-align: center;
+  vertical-align: bottom;
+}
+</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+				<h2>Cognitive Modeling Methods</h2>
+				<p>Jami Pekkanen, Juraj Simko et al.</p>
+				<p>Lecture 2</p>
+				<p>2021-23-03T10+02</p>
+				<p>Cyberspace</p>
+				</section>
+
+				<section>
+				<h3>Homework discussion</h3>
+				<ul>
+					<li>Play tic-tac-toe, with friend or a machine. Follow a car somehow. Play PONG.
+					Read the Wikipedia entries <a href="https://en.wikipedia.org/wiki/Tic-tac-toe">Tic-tac-toe</a>,
+					<a href="https://en.wikipedia.org/wiki/Adaptive_cruise_control">Adaptive cruise control</a> and <a href="https://en.wikipedia.org/wiki/Pong">Pong</a>.</p>
+					<li>Think how some animal, a robot or an AI would do these.
+					<li>Can you think of a MacGyver hack to do any of these. I.e. with paperclips, rubberbands, duct tape and such.
+					<li>Try to remember somehow what you came up with for the next lecture
+
+				</ul>
+				</section>
+				
+				<section>
+				<h3>Computational modeling</h3>
+				<ul>
+					<p>Try to get a stupid heap of silicon to act like it's smart.</p>
+					<p>While the heap is stupid, it is huge. CPU billions of transistors, GPU tens of billions, RAM in trillions, SDD has even more.</p>
+					<p>Human brain has about 100 billion neurons and order of 100 trillion synapses.</p>
+					<p>Computers catching up brains on hardware, but far behind in software.</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>Computers are incredibly stupid</h3>
+				<ul>
+				<p>Literally incredibly stupid. Very few people believe how stupid they really are. Even after told.</p>
+				<p>See <a href="https://youtu.be/EKWGGDXe5MA?t=3189">Feynman's filing cabinet analogue</a>. (Note: starts from a <b>student question</b>!)</p>
+				<p>Any intelligence in a computer is by chance or from its programmers.</p>
+				<p>This is actually great. Smart computers would be really annoying!</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>Humans are too smart for humans</h3>
+				<ul>
+				<p>And definitely too smart for computers!</p>
+				<p>Computers need every single bit defined exactly. And quite a lot of bits are needed for anything</p>
+				<p>Bad for intelligence, but great for modeling! Makes it (a bit) harder to fool yourself.</p>
+				<p>"The first principle is that you must not fool yourself—and you are the easiest person to fool." -<a href="http://calteches.library.caltech.edu/51/2/CargoCult.htm">Feynman again</a>.
+				</ul>
+				</section>
+
+				<section>
+				<h3>Bits of tic-tack-toe</h3>
+				<table>
+					<tr class="text-center-row">
+						<td align="center" valign="center"><img src="tictactoe.png" style="width: 5em; height: auto"></td>
+						<td><div><img src="tictactoe_simple.svg" style="width: 5em; height: auto"></div></td>
+						<td>oxx<br/>xoo<br/>xoo</td>
+						<td>211122122</td>
+					</tr>
+					<tr>
+						<td><small>1 800 000 bits compressed<br/>123 000 000 bits in memory</small></td>
+						<td><small>36 000 bits vectorized</small></td>
+						<td><small>96 bits in UTF-8 (i.e. text)</small></td>
+						<td><small>9 trits in ternary<br/>18 bits in naive encoding</small></td>
+					</tr>
+				</table>
+				</section>
+
+				<section>
+				<h3>Pieces of cruise control</h3>
+				<img style="width: 40%; height: auto" src="cruisecontrol.png">
+				<img style="width: 40%; height: auto" src="cruisemodel.png">
+				</section>
+
+				<section>
+				<h3>Homework</h3>
+				<ul>
+				<p>Figure out (or find out) the optimal stragegy of tic-tac-toe. Write this as instructions a pre-school child could understand.</p>
+				<p>Make a list of "things" that a human driver uses in "cruise control" (start with the simple scenario, expand to e.g. curved roads and different vehicles until you run out of paper).</p>
+				<p>Stay tuned for the first hands-on modeling exercise!</p>
+				</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
