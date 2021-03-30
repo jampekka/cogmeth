@@ -60,5 +60,10 @@ for name, src in algorithms.items():
     el = document.createElement("option")
     el.innerHTML = name
     algos_el.appendChild(el)
+
+def set_algo(ev):
+    editor.editor.setValue(algorithms[algos_el.value])
+algos_el.bind("change", set_algo)
+
 new_game()
 #tictactoe.random_game()

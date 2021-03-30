@@ -21,7 +21,7 @@ algos = {
         "Minimax": source(tictactoe.least_bad_player),
         "Random": source(tictactoe.random_player),
         "Stupid": source(tictactoe.greedy_player),
-        "Custom": source(tictactoe.custom_player),
+        "Custom": source(tictactoe.random_player),
         }
 
 out = open("algos_gen.py", 'w')
