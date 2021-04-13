@@ -1,0 +1,1 @@
+algorithms = {'Target speed': 'def acceleration(dt, v, dx, dv):\n    target_velocity = 50.0/3.6\n    acceleration_magnitude = 1.0\n    if v < target_velocity:\n        return acceleration_magnitude\n    else:\n        return -acceleration_magnitude\n', 'Relative speed': 'def acceleration(dt, v, dx, dv):\n    gain = 0.1\n    accel = gain*dv\n    return accel\n'}
