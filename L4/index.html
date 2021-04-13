@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+<style type="text/css">
+@pongfont {
+	font-family: 'pong';
+	src: url('./pongfont.woff') format('woff');
+}
+
+.text-center-row>th,
+.text-center-row>td {
+  text-align: center;
+  vertical-align: bottom;
+}
+</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+				<h2>Cognitive Modeling Methods</h2>
+				<p>Jami Pekkanen, Juraj Simko et al.</p>
+				<p>Lecture 4</p>
+				<p>2021-14-03T10+02</p>
+				<p>Cyberspace</p>
+				</section>
+
+				<section>
+				<h3>Homework discussion</h3>
+				<p>Send answers (text or code) <b>over email to Jami and Juraj before next lecture</b></p>
+				<ol>
+					<li>Describe (in text or code) optimal strategy for tictac</li>
+					<li>Give at least one tweak to minimax to make it better against random player (code preferred)</li>
+					<li>How to make the tree search faster</li>
+					<li>Do you think humans play like minimax. Why?</li>
+				</ol>
+				</section>
+				
+				<section>
+				<h3>Control theory(ish)</h3>
+				<ul>
+					<p>diff(world, t) = action(observe(world))</p>
+					<p>That's it. But that's quite a bit!</p>
+					<p>Time evolution</p>
+					<p>Typically continuous</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>What's the problem</h3>
+				<ul>
+					<p>Stability.</p>
+					<p>Future.</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>"Real control theory"</h3>
+				<ul>
+					<p>Stochastic observe and action.</p>
+					<p>Try to find (in some sense) optimal action</p>
+					<p>Usually tries to optimize for some cumulative future "value". We'll get back to this in reinforcement learning</p>
+					<p>Very very tricky to find the true optimal action. Gaussian-linear solutions known.</p>
+				</ul>
+
+				</section>
+
+				
+
+				<section>
+				<h3>Homework</h3>
+				<ol>
+					<li>TODO</li>
+				</ol>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
