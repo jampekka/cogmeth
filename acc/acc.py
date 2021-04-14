@@ -18,6 +18,7 @@ class RoadToHell:
     def __init__(self, length=100.0):
         self.length = length
         self.vehicles = []
+        self.time = 0.0
 
     def spread_equally(self):
         n = len(self.vehicles)
@@ -32,6 +33,7 @@ class RoadToHell:
         return v
     
     def step(self, dt):
+        self.time += dt
         n = len(self.vehicles)
         for i, v in enumerate(self.vehicles):
             lv = self.vehicles[(i+1)%n]
@@ -87,16 +89,16 @@ def noiser(f, noise_std):
     return lambda *args: f(*args) + random.gauss(0, noise_std)
 
 def demo():
-    dur = 300
+    dur = 30
     dt = 1/100
     lag = int(1/dt)
     noise = 1.0
-    start_velocity = 50/3.6
+    start_velocity = 0.0
     
     hell = RoadToHell()
-    base_a = dv_accelerator
+    base_a = target_speed_accelerator
     
-    n_vehicles = 10
+    n_vehicles = 1
     for i in range(n_vehicles):
         a = base_a
         a = lagger(a, lag)
@@ -119,6 +121,8 @@ def demo():
     import matplotlib.pyplot as plt
     velocity_log = np.array(velocity_log)
     plt.plot(times, velocity_log)
+    plt.xlabel("Time")
+    plt.ylabel("Velocity (m/s)")
     plt.show()
 
 if __name__ == "__main__":
