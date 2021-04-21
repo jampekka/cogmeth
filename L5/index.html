@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+<style type="text/css">
+@pongfont {
+	font-family: 'pong';
+	src: url('./pongfont.woff') format('woff');
+}
+
+.text-center-row>th,
+.text-center-row>td {
+  text-align: center;
+  vertical-align: bottom;
+}
+</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+				<h2>Cognitive Modeling Methods</h2>
+				<p>Jami Pekkanen, Juraj Simko et al.</p>
+				<p>Lecture 2</p>
+				<p>2021-21-04T10+02</p>
+				<p>Cyberspace</p>
+				</section>
+
+				<section>
+				<h3>Homework</h3>
+				<ol>
+					<li>How to fight latency? (Minimize processing latency, explicate, stabilize, predict, anticipate, prioritize)</li>
+					<li>How to fight noise? (Filter/aggreagate, simplify, understand</li>
+					<li>What are human latencies and noises in "ACC"? Sources, magnitudes.</li>
+					<li>How do humans fight these?</li>
+				</ol>
+				</section>
+			
+				<section>
+				<h3>Heuristics and state values</h3>
+				<ul>
+				<p>Minimax et all have to play till all the (bitter) ends!</p>
+				<p>Computationally expensive. Needs perfect forward model.</p>
+				<p>Figure out (heuristic) values to (all) states instead?</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>Rewards and credit assignment</h3>
+				<ul>
+				<p>Reward = something that reinforces behavior (penalty = negative reward)</p>
+				<p>But what led to the reward?</p>
+				<p>Play lotsa games and see average outcome following a given state!</p>
+				<p>No need to even memorize all the games, dynamic programmic to the rescue! (Bellman equation)</p>
+				</ul>
+				</section>
+				
+				<section>
+				<h3>Reinforcement learning</h3>
+				<ul>
+				<p>Psychological history (Pavlov/conitioning/Rescorla-Wagner) in Concepts?</p>
+				<p>Learn from outcomes, not from examples</p>
+				<p>Very general in general, focus on "temporal difference" type here.</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>Temporal difference learning</h3>
+				<ul>
+				<p>Temporal difference idea: learn if reward different than expected!</p>
+				<p>Propagates state values from future rewards to previous states!</p>
+				<p>State value: expected (average) future reward!</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>Temporal difference tictactoe</h3>
+				<ul>
+					<p>State: board state. Reward: 1/0/-1 win/tie/loss</p>
+				</ul>
+				<pre style="font-size: 40%"><code class="language-python">
+def temporal_difference(values, prev_state, new_state, reward):
+    predicted_value = values[prev_state]
+    observed_value = values[new_state] + reward
+
+    prediction_error = observed_value - predicted_value
+    return prediction_error
+
+def update_values(values, prev_state, new_state, reward, learning_rate):
+    difference = temporal_difference(values, prev_state, new_state, reward)
+    update = learning_rate*difference
+    values[prev_state] += update
+    return values
+				</code></pre>
+				</section>
+
+				<section>
+				<h3>Somewhat solved challenges</h3>
+				<ul>
+					<p>Formulation of reward function critical. Watch what you wish for!</p>
+					<p>Learning rate, how hasty conclusions from reward?</p>
+					<p>"A bird in the hand is worth two in the bush". Discount future.</p>
+					<p>Exploration/exploitation.</p>
+					<p>Bias due to exploration. On-policy vs off-policy.</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>Largely open challenges</h3>
+				<ul>
+					<p>How to plan ahead?</p>
+					<p>How to use in large/continuous state spaces. Value function approximators (e.g. AlphaZero!)</p>
+					<p>How to deal with uncertainty/noise!?!</p>
+					<p>Already problems for ACC!</p>
+					<p>How to learn before dying!?</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>Homework</h3>
+				<ol>
+					<li>What could be "fundamental rewards" for humans? As opposed to (predicted future) values</li>
+					<li>Where do human rewards come from? From the environment, from within?
+					<li>What even is the environment/agent divide, is there one!?</li>
+					<li>Do humans learn tictactoe via reinforcement learning?</li>
+					<li>How to do ACC with RL?</li>
+				</ol>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
