@@ -9,10 +9,25 @@ board_element = document.getElementById("board")
 status_element = document.getElementById("status")
 ai_move_element = document.getElementById("ai_move")
 
-board_values = json.load(open("values_10000.json", "r"))
-board_values = {repr(k): v for k, v in board_values}
+rls = {
+        "10k iters": "values_10000.json",
+        "100 iters": "values_100.json",
+        "1k iters": "values_1000.json",
+        "100k iters": "values_100000.json",
+        }
+rls_el = document.getElementById("rl")
+
+for name, src in rls.items():
+    el = document.createElement("option")
+    el.innerHTML = name
+    rls_el.appendChild(el)
+
+
+board = None
+board_values = None
 def update_board():
     global board, turn
+    if board is None: return
     board_element.innerHTML = ''
     result = tictactoe.get_result(board)
     if result is None:
@@ -39,7 +54,16 @@ def update_board():
             except KeyError:
                 pass
             row_element.appendChild(cell_element)
-    
+
+def update_values():
+    global board_values
+    f = rls[rls_el.value]
+    board_values = json.load(open(f, "r"))
+    board_values = {repr(k): v for k, v in board_values}
+    update_board()
+update_values()
+rls_el.bind("change", lambda ev: update_values())
+
 def manual_move(move):
     global turn, board
     board, result = tictactoe.play_move(board, turn, move)

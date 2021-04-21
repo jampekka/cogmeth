@@ -61,7 +61,7 @@ class TemporalDifferencePlayer:
 
 def td_vs_random():
     random.seed(1)
-    n_games = 1000
+    n_games = 100
     values = defaultdict(lambda: 0.0)
     #td_player = TemporalDifferencePlayer()
     random_player = tictactoe.random_player
