@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+<style type="text/css">
+@pongfont {
+	font-family: 'pong';
+	src: url('./pongfont.woff') format('woff');
+}
+
+body, h2, h3, p {
+	text-shadow: 2px 2px #000 !important;
+}
+
+.text-center-row>th,
+.text-center-row>td {
+  text-align: center;
+  vertical-align: bottom;
+}
+
+</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+				<h2>Cognitive Modeling Methods</h2>
+				<p>Jami Pekkanen, Juraj Simko et al.</p>
+				<p>Lecture 6</p>
+				<p>2021-28-04T10+02</p>
+				<p>Cyberspace</p>
+				</section>
+				
+				<section>
+				<h3>Homework discussion</h3>
+				<ol>
+					<li>What could be "fundamental rewards" for humans? As opposed to (predicted future) values</li>
+					<li>Where do human rewards come from? From the environment, from within?
+					<li>What even is the environment/agent divide, is there one!?</li>
+					<li>Do humans learn tictactoe via reinforcement learning?</li>
+					<li>How to do ACC with RL?</li>
+				</ol>
+				</section>
+			
+				<section>
+				<h3>Supervised learning and universal function approximation</h3>
+				<ul>
+				<p>More or less the same thing</p>
+				<p>Optimization of functionals very well studied field</p>
+				<p>Extremely useful and important technique for about any quantitative stuff</p>
+				<p>Probably not a very good model of behavior as is</p>
+				</ul>
+				</section>
+
+				<section data-background="crater.jpg" style="text-shadow: 2px 2px #000">
+				<h3>Optimization AKA "Programming"</h3>
+				<ul>
+				<p>Given y = f(x), find x that produces minimal (or maximal) y.</p>
+				<p>Very simple, but very abstract, concept.</p>
+				<p>E.g. y is height, f gives height at position x. What is the the lowest position?</p>
+				<p>f(x) often known as "loss" when minimizing</p>
+				</ul>
+				</section>
+
+				<section data-background="crater.svg">
+				<h3>Approximation function</h3>
+				<ul>
+				<p>"Assume a parabolic crater" f(x) = ax², i.e. y = ax²</p>
+				<p>Typically smooth so it is easy to "climb"</p>
+				<p>In some special cases convex, meaning we can find the actual bottom! Rare in practice.</p>
+				<p>LOTS of methods for solving this. Gradient descent is the most popular ML method. Lots of tricks!</p>
+				</ul>
+				</section>
+				
+				<section data-background="crater.jpg" style="text-shadow: 2px 2px #000">
+				<h3>Function approximation</h3>
+				<ul>
+				<p>Can't just assume a "spherical cow" or "parabolic crater" always.</p>
+				<p>Get some very flexible function, like lots of simple functions added together!</p>
+				<p>It's a (very) artifical neural network!</p>
+				<p>Finding flexible-enough but not too flexible function crucial. Aka "network architecture".</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>ANN architectures</h3>
+				<ul>
+				<p>Typically classification, just another kind of loss function (e.g. softmax)</p>
+				<p>"Deep" not usually really that deep</p>
+				<p>"Convolution" means that some "connections" are shared</p>
+				<p>"Skip connection" means that connection jumps layers</p>
+				<p>"Recurrent" means usually some sort of memory, gets really tricky!</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>Homework</h3>
+				<ul>
+					<p>Next lecture is the last. Q&amp;A time!</p>
+					<p>Please send any questions or thoughts by Monday noon</p>
+				</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
