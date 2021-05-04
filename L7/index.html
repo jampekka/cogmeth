@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+<style type="text/css">
+@pongfont {
+	font-family: 'pong';
+	src: url('./pongfont.woff') format('woff');
+}
+
+body, h2, h3, p {
+	text-shadow: 2px 2px #000 !important;
+}
+
+blockquote, ul {
+	font-size: 70%;
+}
+
+.text-center-row>th,
+.text-center-row>td {
+  text-align: center;
+  vertical-align: bottom;
+}
+
+</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+				<h2>Cognitive Modeling Methods</h2>
+				<p>Jami Pekkanen, Juraj Simko et al.</p>
+				<p>Lecture 7</p>
+				<p>2021-5-05T10+02</p>
+				<p>Cyberspace</p>
+				</section>
+				
+				<section>
+				<h3>Exam protocol</h3>
+				<ol>
+				TODO
+				</ol>
+				</section>
+
+				<section>
+				<h3>Unsupervised learning</h3>
+				<blockquote style="font-size: 60%">do we have a model for how the different observations or features are aggregated in forming the idea of an object, other than doing something like training a classification neural network and then working on the inverse problem? Is it even possible to study this independently of some specific goal or game, for example modeling a cognitive function as a thing in itself?</blockquote>
+				<ul style="font-size: 70%">
+				<p>Yes, many! In general known as "unsupervised learning".</p>
+				<p>I.e. try to find some structure in the data without clear goals.</p>
+				<p>Neglected in this course. Some common approaches: k-means clustering, SOM, ICA. Some links to neural organization.</p>
+				<p>Largely neglected in the field, potential for new findings!</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>Recurrence</h3>
+				<blockquote>how is “recurrence in a network” differentiated from “recurrence in a unit”? Specifically, is there a conceptual distinction separate from an implementation distinction?</blockquote>
+				</section>
+
+				<section>
+				<h3>Reward vs penalty</h3>
+				<blockquote>do you think there is anything important about a scenario where, in reinforcement learning, we would reward and not penalize any action?</blockquote>
+				<ul>
+				<p>No fundamental difference. Common convention is that 0 is neutral, but only relative value of reward and penalty matter.</p> 
+				<p>Practical difference: initial high values (w.r.t. "real" reward) encourages exploration.</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>Modeling approach</h3>
+				<blockquote>There are many potential methods to use for cognitive modelling. When you face a new problem how do you approach it?</blockquote>
+				<ul>
+				<p>No clear approach to selecting the approach. Often a problem is sought for an approach (and this is just fine!).</p>
+				<p>My typical heuristic is to figure out what to optimize and see if it has a timeish dimension or not.</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>Model selection</h3>
+				<blockquote>how do you choose best model? Seems like prediction accuracy in this particular case might not be the only the only thing that matters if the goal is to understand some phenomena.</blockquote>
+				<ul>
+				<p>For science: Occam's razor, elegance, generalizability, prediction accuracy.</p>
+				<p>For "engineering": about inverse.</p>
+				<p>No clear criteria, mostly up to science as a community</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>Interference</h3>
+				<ul>
+				<blockquote>When you manage to build a model that seems to accurately predict or model a cognitive problem, how do you / how can you make inferences based on it?</blockquote>
+				<p>Inference ≈ find out what parameter values explain the data best</p>
+				<p>Not fundamentally different from e.g. regression inference for a statistically formulated model.</p>
+				<p>In practice not that often used, but more a matter of lacking implementations and tradition.</p>
+				</ul>
+				</section>
+
+				<section>
+				<h3>Temporal ANNs</h3>
+				<blockquote>ANN's don't have a temporal component in similar way to biological neurons. ... I've read about some neuron simulation software (e.g. Neuron) simulate that type of behaviour for neuroscience research but not outside that. What are the reasons this kind of approach does not work for modelling cognition given our brains seem to heavily rely on it? Von Neumann architecture would be inefficient for that type of calculation so it doesn't make sense, or some other reasons?</blockquote>
+				<ul>
+				<p>Nobody's managed to make them work/learn in practice AFAIK. A major deal if you can. Computing performance not the bottleneck currently.</p>
+				</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
