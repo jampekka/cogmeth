@@ -247,7 +247,9 @@ def pure_mcts_player(board, mark, n_rollouts=1):
         hypothesis = deepcopy(board)
         row, col = move
         hypothesis[row][col] = mark
-        outcome = sum(outcome_score(mark, random_rollout(hypothesis, other_mark(mark))) for i in range(n_rollouts))
+        outcome = sum(outcome_score(mark,
+            random_rollout(hypothesis, other_mark(mark)))
+            for i in range(n_rollouts))
         if outcome > best_outcome:
             best_move = move
             best_outcome = outcome
