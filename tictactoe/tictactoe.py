@@ -230,6 +230,29 @@ def random_game():
         results[result] += 1
     print(results)
 
+def random_rollout(board, mark):
+    board = deepcopy(board)
+    # Just plays random moves until we hit a final state
+    result = get_result(board)
+    while result is None:
+        move = random_player(board, mark)
+        board, result = play_move(board, mark, move)
+        mark = other_mark(mark)
+    return result
+
+def pure_mcts_player(board, mark, n_rollouts=1):
+    best_move = None
+    best_outcome = -math.inf
+    for move in empty_squares(board):
+        hypothesis = deepcopy(board)
+        row, col = move
+        hypothesis[row][col] = mark
+        outcome = sum(outcome_score(mark, random_rollout(hypothesis, other_mark(mark))) for i in range(n_rollouts))
+        if outcome > best_outcome:
+            best_move = move
+            best_outcome = outcome
+    return best_move
+
 if __name__ == '__main__':
     #print("I'm main!?!")
     import inspect

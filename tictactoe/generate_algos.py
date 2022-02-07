@@ -19,6 +19,7 @@ def source(func):
 
 algos = {
         "Minimax": source(tictactoe.least_bad_player),
+        "Monte carlo": source(tictactoe.pure_mcts_player),
         "Random": source(tictactoe.random_player),
         "Stupid": source(tictactoe.greedy_player),
         "Custom": source(tictactoe.random_player),
